@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon ./src/app.js --exec babel-node --presets es2015,stage-0",
     "lint": "eslint src",
-    "test": "mocha ./tests/* --compilers js:babel-register --recursive",
+    "test": "mocha --timeout 60000 ./tests/* --compilers js:babel-register --recursive --require babel-polyfill",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
@@ -23,11 +23,13 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "mongoose": "^5.2.9",
+    "supertest": "^3.1.0",
     "winston": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",

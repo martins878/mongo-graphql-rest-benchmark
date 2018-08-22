@@ -37,3 +37,5 @@ app.use(syntaxHandler);
 app.use((req, res) => res.status(404).json(constants.NOT_FOUND_MESSAGE));
 
 app.listen(port, () => logger.info(`${constants.REST_STARTED} ${port}`));
+
+export default app;
