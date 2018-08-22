@@ -13,9 +13,7 @@
   },
   "pre-commit": [
     "precommit-msg",
-    "build",
-    "lint",
-    "test"
+    "lint"
   ],
   "dependencies": {
     "babel-eslint": "^8.2.6",
