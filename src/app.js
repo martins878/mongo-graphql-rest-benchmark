@@ -13,6 +13,8 @@ import { syntaxHandler } from './utils/handlers';
 // Routes Import
 import posts from './v1/posts/service';
 
+// import { generateDatas } from './utils/fakerDatas';
+
 db.connect();
 
 const port = process.env.PORT || 3030;
@@ -23,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev', { stream: logger.stream }));
+
+// generateDatas();
 
 // Routes Invoked
 app.use('/v1/posts', posts);
