@@ -43,21 +43,22 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         // console.log('>>>>> ', posts.find(title => title === args.title));
         // console.log('>>>>> ', posts.find());
-        // return find(posts, { title: args.title });
-        return API.find({ title: args.title })
-          .then(data => data[0])
-          .catch(error => console.log('ERROR::: ', error));
+        return find(posts, { title: args.title });
+        // return API.find({ title: args.title })
+        //   .then(data => data[0])
+        //   .catch(error => console.log('ERROR::: ', error));
       }
     },
     posts: {
       type: PostType,
       // args: { title: { type: GraphQLString } },
       resolve(parent, args) {
+        console.log(posts);
         // console.log('>>>>> ', posts.find(title => title === args.title));
         // console.log('>>>>> ', posts.find());
-        return API.find()
-          .then(data => console.log(data))
-          .catch(error => console.log('ERROR::: ', error));
+        // return API.find()
+        //   .then(data => console.log(data))
+        //   .catch(error => console.log('ERROR::: ', error));
       }
     }
 
