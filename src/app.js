@@ -20,7 +20,7 @@ import graphqlSchema from './v1/services/posts/graphql/schema';
 db.connect();
 
 const port = process.env.PORT || 3030;
-const graphPort = process.env.PORT || 4000;
+const graphPort = process.env.GRAPH_PORT || 4000;
 const app  = express();
 
 // Express Configurations

@@ -20,19 +20,19 @@ describe('API Posts endpoints', () => {
   //   done();
   // });
 
-  // it('REST - should be list all posts', (done) => {
-  //   request(app)
-  //     .post('/v1/services/posts/find')
-  //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', '/json/')
-  //     .send({})
-  //     .end((err, res) => {
-  //       // const errorStack = JSON.parse(res.error.text);
-  //       expect(res.statusCode).to.equal(200);
-  //       expect(res.clientError).to.be.false;
-  //       done();
-  //     });
-  // });
+  it('REST - should be list all posts', (done) => {
+    request(app)
+      .post('/v1/services/posts/find')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', '/json/')
+      .send({})
+      .end((err, res) => {
+        // const errorStack = JSON.parse(res.error.text);
+        expect(res.statusCode).to.equal(200);
+        expect(res.clientError).to.be.false;
+        done();
+      });
+  });
 
   // it('GRAPHQL - should be list all posts', (done) => {
   //   request(app)
