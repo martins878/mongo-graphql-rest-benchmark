@@ -17,8 +17,6 @@ import posts from './v1/services/posts/service';
 // Schemas
 import graphqlSchema from './v1/services/posts/graphql/schema';
 
-// import { generateDatas } from './utils/fakerDatas';
-
 db.connect();
 
 const port = process.env.PORT || 3030;
@@ -30,8 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev', { stream: logger.stream }));
-
-// generateDatas();
 
 // Routes Invoked
 app.use('/v1/services/posts', posts);
