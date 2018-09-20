@@ -1,6 +1,6 @@
 // Messages
-export const REST_STARTED = 'Magic happens on port:';
-export const GRAPH_STARTED = 'Graph magic happens on port:';
+export const REST_STARTED = 'REST is running on port:';
+export const GRAPHQL_STARTED = 'GRAPHQL is running on port:';
 
 export const MONGO_STARTING = 'Mongodb connection starting';
 export const MONGO_STARTED = 'Mongodb connection was stablished with MongoDB';

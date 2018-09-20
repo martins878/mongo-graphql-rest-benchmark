@@ -1,16 +1,33 @@
-import { name, lorem, commerce, image, random, company, address } from 'faker';
+import {
+  name,
+  lorem,
+  commerce,
+  image,
+  random,
+  company,
+  address
+} from 'faker';
+
+const generatePhotos = () => {
+  const photos = [];
+  for (let i = 0; i < 100; i++) {
+    photos.push(image.imageUrl());
+  }
+  return photos;
+}
+
+const generateStores = () => {
+  const stores = [];
+  for (let i = 0; i < 1000; i++) {
+    stores.push(company.companyName());
+  }
+  return stores;
+}
 
 export const generateDatas = () => {
-  // const obj = {
-  //   title: name.title(),
-  //   author: name.findName(),
-  //   post: lorem.words(),
-  //   description: lorem.sentences()
-  // }
-
   const obj = {
     name: commerce.productName(),
-    photos: [image.imageUrl(), image.imageUrl(), image.imageUrl(), image.imageUrl()],
+    photos: generatePhotos(),
     description: lorem.sentences(),
     registerNumber: random.number(),
     color: commerce.color(),
@@ -29,10 +46,8 @@ export const generateDatas = () => {
     warranty: random.number(),
     provider: name.findName(),
     code: random.alphaNumeric(),
-    stores: [company.companyName(), company.companyName()]
+    stores: generateStores()
   }
-
-  console.log('>>> ', obj);
 
   return obj;
 };

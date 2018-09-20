@@ -5,7 +5,7 @@ import { generateDatas } from '../../src/utils/fakerDatas';
 
 describe('API Posts endpoints', () => {
   // it('should be populate posts collection', (done) => {
-  //   for (let i = 0; i < 1000; i++) {
+  //   for (let i = 0; i < 500; i++) {
   //     request(app)
   //       .post('/v1/services/posts/new')
   //       .set('Accept', 'application/json')
@@ -16,11 +16,11 @@ describe('API Posts endpoints', () => {
   //         expect(res.statusCode).to.equal(200);
   //         expect(res.clientError).to.be.false;
   //       });
-  //     }
-  //     done();
+  //   }
+  //   done();
   // });
 
-  it('should be list all posts', (done) => {
+  it('REST - should be list all posts', (done) => {
     request(app)
       .post('/v1/services/posts/find')
       .set('Accept', 'application/json')
@@ -33,4 +33,18 @@ describe('API Posts endpoints', () => {
         done();
       });
   });
+
+  // it('GRAPHQL - should be list all posts', (done) => {
+  //   request(app)
+  //     .post('/graphql')
+  //     .set('Accept', 'application/json')
+  //     .expect('Content-Type', '/json/')
+  //     .send({ query: '{ posts { name category description price photos } }' })
+  //     // .send({ query: '{ posts { name photos description registerNumber color valid category lot price brand origin plots freight evaluation barCode model weight warranty provider code stores } }' })
+  //     .end((err, res) => {
+  //       expect(res.statusCode).to.equal(200);
+  //       expect(res.clientError).to.be.false;
+  //       done();
+  //     });
+  //   });
 });
