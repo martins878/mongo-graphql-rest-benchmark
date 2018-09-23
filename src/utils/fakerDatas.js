@@ -10,7 +10,7 @@ import {
 
 const generatePhotos = () => {
   const photos = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 2; i++) {
     photos.push(image.imageUrl());
   }
   return photos;
@@ -29,24 +29,24 @@ export const generateDatas = () => {
     name: commerce.productName(),
     photos: generatePhotos(),
     description: lorem.sentences(),
-    registerNumber: random.number(),
-    color: commerce.color(),
-    valid: random.boolean(),
+    // registerNumber: random.number(),
+    // color: commerce.color(),
+    // valid: random.boolean(),
     category: commerce.department(),
-    lot: random.word(),
+    // lot: random.word(),
     price: commerce.price(),
-    brand: company.companyName(),
-    origin: address.country(),
-    plots: random.number(),
-    freight: commerce.price(),
-    evaluation: random.number(),
-    barCode: random.alphaNumeric(),
-    model: lorem.words(),
-    weight: random.number(),
-    warranty: random.number(),
-    provider: name.findName(),
-    code: random.alphaNumeric(),
-    stores: generateStores()
+    // brand: company.companyName(),
+    // origin: address.country(),
+    // plots: random.number(),
+    // freight: commerce.price(),
+    // evaluation: random.number(),
+    // barCode: random.alphaNumeric(),
+    // model: lorem.words(),
+    // weight: random.number(),
+    // warranty: random.number(),
+    // provider: name.findName(),
+    // code: random.alphaNumeric(),
+    // stores: generateStores()
   }
 
   return obj;

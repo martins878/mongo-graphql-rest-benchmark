@@ -12,10 +12,10 @@ import * as constants from './utils/constants';
 import { syntaxHandler } from './utils/handlers';
 
 // Routes Import
-import posts from './v1/services/posts/service';
+import products from './v1/services/products/service';
 
 // Schemas
-import graphqlSchema from './v1/services/posts/graphql/schema';
+import graphqlSchema from './v1/services/products/graphql/schema';
 
 db.connect();
 
@@ -30,7 +30,7 @@ app.use(cors());
 app.use(morgan('dev', { stream: logger.stream }));
 
 // Routes Invoked
-app.use('/v1/services/posts', posts);
+app.use('/v1/services/products', products);
 app.use('/graphql', graphqlHTTP({
   schema: graphqlSchema,
   graphiql: true
