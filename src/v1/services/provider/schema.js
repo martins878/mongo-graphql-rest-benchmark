@@ -13,7 +13,6 @@ export const create = {
 
 export const find = {
   body: Joi.object().keys({
-    _id: Joi.string(),
-    registerNumber: Joi.number()
+    _id: Joi.string()
   })
 };

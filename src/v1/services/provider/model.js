@@ -4,8 +4,7 @@ const ProviderSchema = new mongoose.Schema({
   name: String,
   address: String,
   cep: String,
-  phone: String,
-  // products: 
+  phone: String
 })
 
 export default mongoose.model('Provider', ProviderSchema);

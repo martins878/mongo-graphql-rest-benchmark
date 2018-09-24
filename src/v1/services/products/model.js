@@ -19,9 +19,9 @@ const ProductSchema = new mongoose.Schema({
   // model: String,
   // weight: Number,
   // warranty: Number,
-  // provider: String,
+  provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' }
   // code: String,
   // stores: [String]
 })
 
-export default mongoose.model('Post', ProductSchema);
+export default mongoose.model('Product', ProductSchema);

@@ -13,6 +13,7 @@ import { syntaxHandler } from './utils/handlers';
 
 // Routes Import
 import products from './v1/services/products/service';
+import provider from './v1/services/provider/service';
 
 // Schemas
 import graphqlSchema from './v1/services/products/graphql/schema';
@@ -31,6 +32,7 @@ app.use(morgan('dev', { stream: logger.stream }));
 
 // Routes Invoked
 app.use('/v1/services/products', products);
+app.use('/v1/services/provider', provider);
 app.use('/graphql', graphqlHTTP({
   schema: graphqlSchema,
   graphiql: true

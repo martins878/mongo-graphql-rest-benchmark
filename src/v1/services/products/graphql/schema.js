@@ -4,9 +4,12 @@ import {
   GraphQLSchema,
   GraphQLList,
   GraphQLInt,
-  GraphQLBoolean
+  GraphQLBoolean,
+  GraphQLID,
 } from 'graphql';
+import mongoose from 'mongoose';
 import * as API from '../helper';
+import * as APIProvider from '../../provider/helper';
 
 const ProductType = new GraphQLObjectType({
   name: 'Product',
@@ -29,15 +32,48 @@ const ProductType = new GraphQLObjectType({
     // model: { type: GraphQLString },
     // weight: { type: GraphQLInt },
     // warranty: { type: GraphQLInt },
-    // provider: { type: GraphQLString },
+    provider: {
+      type: new GraphQLList(ProviderType),
+      resolve(parent, args) {
+        return APIProvider.find({ _id: parent.provider })
+          .then(data => data);
+      }
+    },
     // code: { type: GraphQLString },
     // stores: { type: new GraphQLList(GraphQLString) }
+  })
+});
+
+const ProviderType = new GraphQLObjectType({
+  name: 'Provider',
+  fields: () => ({
+    _id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    address: { type: GraphQLString },
+    cep: { type: GraphQLString },
+    phone: { type: GraphQLString },
+    products: {
+      type: new GraphQLList(ProductType),
+      resolve(parent, args) {
+        return API.find({ provider: parent._id })
+          .then(data => data);
+      }
+    }
   })
 });
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
+    provider: {
+      type: new GraphQLList(ProviderType),
+      args: { _id: { type: GraphQLString } },
+      resolve(parent, args) {
+        return APIProvider.find({ _id: mongoose.Types.ObjectId(args._id) })
+          .then(data => data)
+          .catch(error => console.log('ERROR::: ', error));
+      }
+    },
     // product: {
     //   type: new GraphQLList(ProductType),
     //   args: { title: { type: GraphQLString } },
@@ -51,7 +87,20 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(ProductType),
       resolve(parent, args) {
         return API.find()
-          .then(data => data)
+          .then(data => {
+            // const newData = data.map(d => {
+            //   return {...d._doc, provider: d.provider.toString()};
+            // });
+            // console.log('>>> ', newData);
+            // const newb = [];
+            // newData.forEach(d => {
+              // console.log('>>>>>>>>>>> ', typeof d.provider.toString(), d.provider.toString());
+              // console.log('>>>>>>>>>>> ', typeof d.provider, d.provider);
+            // });
+            // console.log('data: ', newb);
+            // return newData;
+            return data;
+          })
           .catch(error => console.log('ERROR::: ', error));
       }
     }

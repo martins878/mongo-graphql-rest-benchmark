@@ -19,7 +19,7 @@ const product = {
   // model: Joi.string().required(),
   // weight: Joi.number().required(),
   // warranty: Joi.number().required(),
-  // provider: Joi.string().required(),
+  provider: Joi.string().required(),
   // code: Joi.string().required(),
   // stores: Joi.array().required()
 }
@@ -31,6 +31,6 @@ export const create = {
 export const find = {
   body: Joi.object().keys({
     _id: Joi.string(),
-    registerNumber: Joi.number()
+    provider: Joi.string()
   })
 };

@@ -24,6 +24,16 @@ const generateStores = () => {
   return stores;
 }
 
+const sortProvider = () => {
+  const providers = ['5ba6e0e660624bbcfb426be4', '5ba6e1175b739cbd0465ff8e'];
+  const number = random.number();
+  if (number % 2 === 0) {
+    return providers[0];
+  } else {
+    return providers[1];
+  }
+}
+
 export const generateDatas = () => {
   const obj = {
     name: commerce.productName(),
@@ -44,7 +54,7 @@ export const generateDatas = () => {
     // model: lorem.words(),
     // weight: random.number(),
     // warranty: random.number(),
-    // provider: name.findName(),
+    provider: sortProvider(),
     // code: random.alphaNumeric(),
     // stores: generateStores()
   }
