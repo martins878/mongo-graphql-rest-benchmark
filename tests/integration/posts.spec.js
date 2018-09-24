@@ -5,7 +5,7 @@ import { generateDatas } from '../../src/utils/fakerDatas';
 
 describe('API Products endpoints', () => {
   // it('should be populate products collection', (done) => {
-  //   for (let i = 0; i < 5; i++) {
+  //   for (let i = 0; i < 500; i++) {
   //     request(app)
   //       .post('/v1/services/products/new')
   //       .set('Accept', 'application/json')
@@ -42,7 +42,7 @@ describe('API Products endpoints', () => {
   //     .send({ provider: '5ba6e1175b739cbd0465ff8e' })
   //     .end((err, res) => {
   //       // const errorStack = JSON.parse(res.error.text);
-  //       console.log('RESPONSE::: ', res.body);
+  //       // console.log('RESPONSE::: ', res.body);
   //       expect(res.statusCode).to.equal(200);
   //       expect(res.clientError).to.be.false;
   //       done();
